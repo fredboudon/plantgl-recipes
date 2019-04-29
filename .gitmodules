@@ -4,3 +4,6 @@
 [submodule "libqglviewer"]
 	path = libqglviewer
 	url = https://github.com/Ethan13310/libqglviewer-recipe
+[submodule "pyqglviewer"]
+	path = pyqglviewer
+	url = https://github.com/Ethan13310/PyQGLViewer
