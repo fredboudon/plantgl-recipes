@@ -1,5 +1,5 @@
-export CXXFLAGS="-stdlib=libc++ -std=c++17"
-export LINKFLAGS="-stdlib=libc++ -std=c++17 -L${LIBRARY_PATH}"
+export CXXFLAGS="-stdlib=libc++ -std=c++14"
+export LINKFLAGS="-stdlib=libc++ -std=c++14 -L${LIBRARY_PATH}"
 
 if [ "$(uname)" == "Darwin" ];
 then
