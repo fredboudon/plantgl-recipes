@@ -1,0 +1,6 @@
+[submodule "plantgl"]
+	path = plantgl
+	url = https://github.com/Ethan13310/plantgl
+[submodule "libqglviewer"]
+	path = libqglviewer
+	url = https://github.com/Ethan13310/libqglviewer-recipe
