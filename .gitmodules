@@ -7,3 +7,6 @@
 [submodule "pyqglviewer"]
 	path = pyqglviewer
 	url = https://github.com/Ethan13310/PyQGLViewer
+[submodule "openalea.deploy"]
+	path = openalea.deploy
+	url = https://github.com/Ethan13310/deploy
