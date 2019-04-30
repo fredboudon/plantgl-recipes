@@ -5,6 +5,9 @@ platform:
 environment:
   matrix:
     # Add here environment variables to control the Appveyor build
+    - CONDA_RECIPE: openalea.deploy
+      CONDA_VERSION: 3
+      
     - CONDA_RECIPE: ann
       CONDA_VERSION: 3
       

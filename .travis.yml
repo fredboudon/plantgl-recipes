@@ -10,6 +10,9 @@ services:
   - docker
 
 env:
+  - CONDA_RECIPE=openalea.deploy
+    CONDA_VERSION=3
+    
   - CONDA_RECIPE=ann
     CONDA_VERSION=3
     

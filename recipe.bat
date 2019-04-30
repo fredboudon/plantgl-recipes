@@ -1,3 +1,6 @@
+conda build openalea.deploy
+conda install --use-local openalea.deploy
+
 conda build ann
 conda install --use-local ann
 
