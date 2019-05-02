@@ -28,6 +28,9 @@ environment:
 
     - ANACONDA_RELEASE: true
 
+init:
+  - git config --global core.autocrlf true
+
 install:
   - git clone https://github.com/OpenAlea/appveyor-ci.git appveyor-ci
   - cd appveyor-ci
