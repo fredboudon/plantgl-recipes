@@ -18,3 +18,12 @@ conda install --use-local qhull
 
 conda build plantgl
 conda install --use-local plantgl
+
+conda build lpy
+conda install --use-local lpy
+
+conda build mtg
+conda install --use-local mtg
+
+conda build plantscan3d
+conda install --use-local plantscan3d

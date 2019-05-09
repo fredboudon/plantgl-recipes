@@ -30,6 +30,15 @@ env:
 
   - CONDA_RECIPE=plantgl
     CONDA_VERSION=3
+    
+  - CONDA_RECIPE=lpy
+    CONDA_VERSION=3
+    
+  - CONDA_RECIPE=mtg
+    CONDA_VERSION=3
+    
+  - CONDA_RECIPE=plantscan3d
+    CONDA_VERSION=3
 
   - ANACONDA_RELEASE=true
 
