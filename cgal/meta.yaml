@@ -14,21 +14,21 @@ about:
 
 build:
     features:
-      - vc9               [win and py27]
-      - vc14              [win and py36]
+      - vc9  [win and py27]
+      - vc14 [win and py37]
 
 requirements:
   build:
    - cmake
    - eigen
    - mpfr
-   #- gmp [unix]
+   # - gmp [unix]
    - mpir
    - boost
    - zlib
   run:
    - boost
-   #- gmp [unix]
+   # - gmp [unix]
    - mpfr
 
 test:

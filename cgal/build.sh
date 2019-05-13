@@ -19,4 +19,4 @@ cmake \
   ..
 
 #cmake -DGMP_LIBRARIES="-L$PREFIX/lib -lgmp" -DGMP_INCLUDE_DIR=$PREFIX/include -DCMAKE_INSTALL_PREFIX=$PREFIX -DWITH_CGAL_ImageIO:BOOL=OFF -DWITH_CGAL_Qt5:BOOL=OFF .
-make install  -j${CPU_COUNT}
+make install -j${CPU_COUNT}

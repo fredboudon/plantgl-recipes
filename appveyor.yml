@@ -26,8 +26,8 @@ environment:
     - CONDA_RECIPE: plantgl
       CONDA_VERSION: 3
       
-    - CONDA_RECIPE: lpy
-      CONDA_VERSION: 3
+    # - CONDA_RECIPE: lpy
+    #  CONDA_VERSION: 3
       
     - CONDA_RECIPE: mtg
       CONDA_VERSION: 3

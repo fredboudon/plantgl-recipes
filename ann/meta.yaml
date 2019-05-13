@@ -10,25 +10,24 @@ source:
     patches:
         - patches/cmake.patch
 
-
 build:
   detect_binary_files_with_prefix: true
 
 build:
   features:
-    - vc9               [win and py27]
-    - vc14              [win and py36]
+    - vc9         [win and py27]
+    - vc14        [win and py37]
   track_features:
-    - vc9               [win and py27]
-    - vc14              [win and py36]
-
+    - vc9         [win and py27]
+    - vc14        [win and py37]
 
 requirements:
   build:
    - cmake
-   - vs2008_runtime    [win and py27]
-   - vs2015_runtime    [win and py36]
    - patch
+  run:
+   - vs2008_runtime   [win and py27]
+   - vs2015_runtime   [win and py37]
 
 about:
     home: http://www.cs.umd.edu/~mount/ANN/
