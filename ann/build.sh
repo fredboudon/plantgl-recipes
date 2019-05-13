@@ -1,5 +1,5 @@
-export CXXFLAGS="-stdlib=libc++ -std=c++14"
-export LINKFLAGS="-stdlib=libc++ -std=c++14 -L${LIBRARY_PATH}"
+export CXXFLAGS="-std=c++14"
+export LINKFLAGS="-std=c++14 -L${LIBRARY_PATH}"
 
 if [ "$(uname)" == "Darwin" ];
 then
@@ -8,8 +8,8 @@ then
 
     export MACOSX_VERSION_MIN=10.11
     
-    CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
-    LINKFLAGS="${LINKFLAGS} -mmacosx-version-min=${MACOSX_VERSION_MIN}"
+    CXXFLAGS="${CXXFLAGS} -stdlib=libc++ -mmacosx-version-min=${MACOSX_VERSION_MIN}"
+    LINKFLAGS="${LINKFLAGS} -stdlib=libc++ -mmacosx-version-min=${MACOSX_VERSION_MIN}"
 fi
 
 cmake -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
