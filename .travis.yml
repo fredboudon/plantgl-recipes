@@ -1,8 +1,20 @@
 language: cpp
 
-os:
-  - osx
-  - linux
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+        
+    - os: osx
+      osx_image: xcode10.1
 
 sudo: required
 
@@ -41,6 +53,9 @@ env:
     CONDA_VERSION=3
 
   - ANACONDA_RELEASE=true
+
+before_install:
+  - eval "${MATRIX_EVAL}"
 
 install:
   - git clone https://github.com/openalea/travis-ci.git
