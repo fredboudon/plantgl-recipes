@@ -43,7 +43,7 @@ env:
   - ANACONDA_RELEASE=true
 
 install:
-  - git clone https://github.com/StatisKit/travis-ci.git
+  - git clone https://github.com/openalea/travis-ci.git
   - cd travis-ci
   - source install.sh
 
