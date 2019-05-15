@@ -2,7 +2,7 @@ language: cpp
 
 os:
   - linux
-  - osx
+  # - osx
 
 sudo: required
 
@@ -10,24 +10,24 @@ services:
   - docker
 
 env:
-  - CONDA_RECIPE=openalea.deploy
-    CONDA_VERSION=3
-    
-  - CONDA_RECIPE=ann
-    CONDA_VERSION=3
-    
-  - CONDA_RECIPE=cgal
-    CONDA_VERSION=3
-    
-  - CONDA_RECIPE=libqglviewer
-    CONDA_VERSION=3
-    
-  - CONDA_RECIPE=pyqglviewer
-    CONDA_VERSION=3
-    
-  - CONDA_RECIPE=qhull
-    CONDA_VERSION=3
-
+  # - CONDA_RECIPE=openalea.deploy
+  #   CONDA_VERSION=3
+  #   
+  # - CONDA_RECIPE=ann
+  #   CONDA_VERSION=3
+  #   
+  # - CONDA_RECIPE=cgal
+  #   CONDA_VERSION=3
+  #   
+  # - CONDA_RECIPE=libqglviewer
+  #   CONDA_VERSION=3
+  #   
+  # - CONDA_RECIPE=pyqglviewer
+  #   CONDA_VERSION=3
+  #   
+  # - CONDA_RECIPE=qhull
+  #   CONDA_VERSION=3
+  
   - CONDA_RECIPE=plantgl
     CONDA_VERSION=3
     
