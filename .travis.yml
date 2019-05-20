@@ -51,29 +51,6 @@ before_script:
   - source before_script.sh
 
 script:
-  - |
-    if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-      sudo -E update-alternatives --remove-all gcc
-      sudo -E update-alternatives --remove-all g++
-
-      sudo -E apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
-      sudo -E apt-get update
-      sudo -E apt-get -yq --no-install-suggests --no-install-recommends install gcc-7 g++-7
-
-      sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 20
-      sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 20
-
-      sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
-      sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
-
-      sudo update-alternatives --set cc /usr/bin/gcc
-      sudo update-alternatives --set c++ /usr/bin/g++
-
-      export CC=gcc-7
-      export CXX=g++-7
-    fi
-
-  - ${CXX} --version
   - source script.sh
 
 after_success:
