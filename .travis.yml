@@ -15,31 +15,31 @@ services:
 env:
   - CONDA_RECIPE=openalea.deploy
     CONDA_VERSION=3
-    
+
   - CONDA_RECIPE=ann
     CONDA_VERSION=3
-    
+
   - CONDA_RECIPE=cgal
     CONDA_VERSION=3
-    
+
   - CONDA_RECIPE=libqglviewer
     CONDA_VERSION=3
-    
+
   - CONDA_RECIPE=pyqglviewer
     CONDA_VERSION=3
-    
+
   - CONDA_RECIPE=qhull
     CONDA_VERSION=3
 
   - CONDA_RECIPE=plantgl
     CONDA_VERSION=3
-    
+
   # - CONDA_RECIPE=lpy
   #  CONDA_VERSION=3
-    
+
   - CONDA_RECIPE=mtg
     CONDA_VERSION=3
-    
+
   - CONDA_RECIPE=plantscan3d
     CONDA_VERSION=3
 
@@ -56,26 +56,26 @@ before_script:
 script:
   - |
     if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-      sudo -E update-alternatives --remove-all gcc 
+      sudo -E update-alternatives --remove-all gcc
       sudo -E update-alternatives --remove-all g++
-      
+
       sudo -E apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
       sudo -E apt-get update
       sudo -E apt-get -yq --no-install-suggests --no-install-recommends install gcc-7 g++-7
-      
+
       sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 20
       sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 20
-      
+
       sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
       sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
-      
+
       sudo update-alternatives --set cc /usr/bin/gcc
       sudo update-alternatives --set c++ /usr/bin/g++
-      
+
       export CC=gcc-7
       export CXX=g++-7
     fi
-  
+
   - ${CXX} --version
   - source script.sh
 
