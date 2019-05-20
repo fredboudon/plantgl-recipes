@@ -2,10 +2,7 @@ language: cpp
 
 os:
   - linux
-    dist: xenial
   - osx
-    osx_image: xcode10.2
-    compiler: clang
 
 sudo: required
 
