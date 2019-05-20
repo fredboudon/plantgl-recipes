@@ -1,13 +1,26 @@
 language: cpp
 
-os:
-  - linux
-  - osx
+os: linux
+dist: xenial
+
+matrix:
+  include:
+    # Linux
+    - env: COMPILER=g++-7
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+    
+    # macOS
+    - env: COMPILER=clang++
+      os: osx
+      osx_image: xcode10.2
+      compiler: clang
 
 sudo: required
-
-services:
-  - docker
 
 env:
   - CONDA_RECIPE=openalea.deploy
@@ -45,6 +58,7 @@ env:
 install:
   - git clone https://github.com/openalea/travis-ci.git
   - cd travis-ci
+  - export CXX=${COMPILER}
   - source install.sh
 
 before_script:
