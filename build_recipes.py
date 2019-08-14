@@ -12,7 +12,7 @@ repositories = [
     'openalea.deploy',
     'plantgl',
     'plantscan3d',
-    'libqglviewer',
+    'libqglviewer-recipe',
     'pyqglviewer'
 ]
 
@@ -31,7 +31,7 @@ class Repository:
         self.branch = branch
 
     def cloneAsSubmodule(self):
-        return self.__execGit('submodule', 'add', 'https://github.com/' + self.owner + '/' + self.name + '.git', self.branch)
+        return self.__execGit('submodule', 'add', 'https://github.com/' + self.owner + '/' + self.name + '.git', self.name, '-b', self.branch)
 
     def __execGit(self, *args):
         return self.__execProgram('git', *args)
@@ -43,6 +43,6 @@ class Repository:
         return child.returncode
 
 # Clone submodule
-for repoName in Repositories:
+for repoName in repositories:
     repo = Repository(owner, repoName, branch)
     repo.cloneAsSubmodule()
