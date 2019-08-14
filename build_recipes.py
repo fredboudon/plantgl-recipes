@@ -1,4 +1,5 @@
-import os
+import os, shutil
+from os.path import join
 import subprocess
 import sys
 
@@ -33,6 +34,16 @@ class Repository:
     def cloneAsSubmodule(self):
         return self.__execGit('submodule', 'add', 'https://github.com/' + self.owner + '/' + self.name + '.git', self.name, '-b', self.branch)
 
+    def removePreviousSubmodule(self):
+        if os.path.exists(self.name):
+            #self.__execGit('submodule', 'deinit', '-f', self.name)
+            #try:
+            #    shutil.rmtree(join('.git', 'modules', self.name))
+            #except:
+            #    pass
+            self.__execGit('rm', '-f', self.name)
+
+
     def __execGit(self, *args):
         return self.__execProgram('git', *args)
 
@@ -45,4 +56,5 @@ class Repository:
 # Clone submodule
 for repoName in repositories:
     repo = Repository(owner, repoName, branch)
+    repo.removePreviousSubmodule()
     repo.cloneAsSubmodule()
