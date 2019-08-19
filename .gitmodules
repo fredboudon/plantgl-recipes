@@ -7,9 +7,6 @@
 [submodule "openalea.deploy"]
 	path = openalea.deploy
 	url = https://github.com/Ethan13310/deploy
-[submodule "plantscan3d"]
-	path = plantscan3d
-	url = https://github.com/Ethan13310/plantscan3d
 [submodule "lpy"]
 	path = lpy
 	url = https://github.com/fredboudon/lpy.git
@@ -19,3 +16,6 @@
 [submodule "deploy"]
 	path = deploy
 	url = https://github.com/fredboudon/deploy.git
+[submodule "plantgl"]
+	path = plantgl
+	url = https://github.com/fredboudon/plantgl.git
