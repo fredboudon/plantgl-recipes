@@ -117,8 +117,8 @@ class Repository:
         # does not work. cannot grap remote repo
         remotesignature = 'https://github.com/'
         if os.path.exists(self.name):
-            value = config(self.name)
-            if value['url'].startswith(remotesignature):
+            value = config(self.name)['url']
+            if value.startswith(remotesignature):
                 currentowner = value[len(remotesignature):].split('/')[0]
                 return currentowner
 
@@ -128,7 +128,6 @@ class Repository:
             os.chdir(self.name)
             code, value = execGit('branch')
             os.chdir(os.pardir)
-            print(value)
             for l in value.splitlines():
                 if l.startswith('*'):
                     return l.split()[1]
@@ -138,6 +137,7 @@ class Repository:
 if __name__ == '__main__':
     # Clone submodule
     for repoName in repositories:
+        print('*** Processing submodule', repoName)
         repo = Repository(owner, repoName, branch)
         repo.check()
         repo.update()
