@@ -47,6 +47,7 @@ def config(name, configfile = '.gitmodules'):
 
 def execProgram(program, *args):
     args = [program] + list(args)
+    print ' '.join(args)
     child = subprocess.run(args, stdout=subprocess.PIPE)
     #child.communicate()
     return child.returncode, child.stdout.decode()
@@ -128,6 +129,7 @@ class Repository:
             os.chdir(self.name)
             code, value = execGit('branch')
             os.chdir(os.pardir)
+            print(value)
             for l in value.splitlines():
                 if l.startswith('*'):
                     return l.split()[1]
@@ -137,7 +139,7 @@ class Repository:
 if __name__ == '__main__':
     # Clone submodule
     for repoName in repositories:
-        print('*** Processing submodule', repoName)
+        print('*** Processing submodule '+repr(repoName))
         repo = Repository(owner, repoName, branch)
         repo.check()
         repo.update()
