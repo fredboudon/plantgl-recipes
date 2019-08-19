@@ -1,6 +1,3 @@
-[submodule "libqglviewer"]
-	path = libqglviewer
-	url = https://github.com/Ethan13310/libqglviewer-recipe
 [submodule "openalea.deploy"]
 	path = openalea.deploy
 	url = https://github.com/Ethan13310/deploy
@@ -22,3 +19,6 @@
 [submodule "libqglviewer-recipe"]
 	path = libqglviewer-recipe
 	url = https://github.com/fredboudon/libqglviewer-recipe.git
+[submodule "pyqglviewer"]
+	path = pyqglviewer
+	url = https://github.com/fredboudon/pyqglviewer.git
