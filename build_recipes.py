@@ -90,11 +90,14 @@ class Repository:
         else :
             lowner = self.localRepoOwner()
             lbranch = self.localRepoBranch()
-            print('Current owner:',repr(),'- current branch:',repr())
-            if self.localRepoOwner() != self.owner :
+            print('Current owner:',repr(lowner),'- current branch:',repr(lbranch))
+            if lowner != self.owner :
                 self.removePreviousSubmodule()
                 self.cloneAsSubmodule()
-            elif self.localRepoBranch() != self.branch:
+                os.chdir(self.name)
+                execGit('checkout',self.branch)
+                os.chdir(os.pardir)
+            elif lbranch != self.branch:
                 os.chdir(self.name)
                 execGit('checkout',self.branch)
                 execGit('pull')
