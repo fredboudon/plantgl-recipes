@@ -13,6 +13,6 @@
 [submodule "plantscan3d"]
 	path = plantscan3d
 	url = https://github.com/Ethan13310/plantscan3d
-[submodule "mtg"]
-	path = mtg
-	url = https://github.com/Ethan13310/mtg
+[submodule "lpy"]
+	path = lpy
+	url = https://github.com/fredboudon/lpy.git
