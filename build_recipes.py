@@ -13,7 +13,7 @@ repositories = [
     'deploy',
     'plantgl',
     'plantscan3d',
-    'libqglviewer-recipe',
+    ('libqglviewer-recipe' , 'OpenAleaRecipes'),
     'pyqglviewer'
 ]
 
@@ -47,7 +47,7 @@ def config(name, configfile = '.gitmodules'):
 
 def execProgram(program, *args):
     args = [program] + list(args)
-    print ' '.join(args)
+    print (' '.join(args))
     child = subprocess.run(args, stdout=subprocess.PIPE)
     #child.communicate()
     return child.returncode, child.stdout.decode()
@@ -60,19 +60,21 @@ eNotExists, eRemoteExists, eBranchExists = 0,1,2
 
 class Repository:
 
-    def __init__(self, owner, name, branch='master'):
-        self.owner = owner
+    def __init__(self, owner, name, branch='master', defaultowner = 'openalea', defaultbranch = 'master'):
         self.name = name
+        self.owner = owner
         self.branch = branch
+        self.defaultowner = defaultowner
+        self.defaultbranch = defaultbranch
 
     def check(self):
         code = self.checkRemoteRepoExists()
         if code & eRemoteExists == 0:
-            print('Cannot find asked remote owner of'+repr(self.name)+'. Changing from',repr(self.owner),"to 'openalea'")
-            self.owner = 'openalea'
+            print('Cannot find asked remote owner of'+repr(self.name)+'. Changing from',repr(self.owner),"to '"+self.defaultowner+"'")
+            self.owner = self.defaultowner
         if code & eBranchExists == 0:
-            print('Cannot find asked remote branch of'+repr(self.name)+'. Changing from',repr(self.branch),"to 'master'")
-            self.branch = 'master'
+            print('Cannot find asked remote branch of'+repr(self.name)+'. Changing from',repr(self.branch),"to '"+self.defaultbranch+"'")
+            self.branch = self.defaultbranch
 
     def checkRemoteRepoExists(self):
         code, value = execGit('ls-remote', 'https://github.com/' + self.owner + '/' + self.name + '.git', '-b', self.branch)
@@ -86,18 +88,20 @@ class Repository:
         if not os.path.exists(self.name) :
             self.cloneAsSubmodule()
         else :
-            print('Current owner:',repr(self.localRepoOwner()),'- current branch:',repr(self.localRepoBranch()))
+            lowner = self.localRepoOwner()
+            lbranch = self.localRepoBranch()
+            print('Current owner:',repr(),'- current branch:',repr())
             if self.localRepoOwner() != self.owner :
                 self.removePreviousSubmodule()
                 self.cloneAsSubmodule()
             elif self.localRepoBranch() != self.branch:
                 os.chdir(self.name)
-                execGit('submodule','set-branch','-b',self.branch)
-                execGit('submodule','update')
+                execGit('checkout',self.branch)
+                execGit('pull')
                 os.chdir(os.pardir)
             else:
                 os.chdir(self.name)
-                execGit('submodule','update')
+                execGit('pull')
                 os.chdir(os.pardir)
 
 
@@ -129,7 +133,6 @@ class Repository:
             os.chdir(self.name)
             code, value = execGit('branch')
             os.chdir(os.pardir)
-            print(value)
             for l in value.splitlines():
                 if l.startswith('*'):
                     return l.split()[1]
@@ -139,8 +142,12 @@ class Repository:
 if __name__ == '__main__':
     # Clone submodule
     for repoName in repositories:
+        defaultparam = []
+        if type(repoName) != str:
+            defaultowner = repoName[1:]
+            repoName = repoName[0]
         print('*** Processing submodule '+repr(repoName))
-        repo = Repository(owner, repoName, branch)
+        repo = Repository(owner, repoName, branch, *defaultparam)
         repo.check()
         repo.update()
 
