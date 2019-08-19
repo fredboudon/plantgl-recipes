@@ -1,6 +1,3 @@
-[submodule "plantgl"]
-	path = plantgl
-	url = https://github.com/Ethan13310/plantgl
 [submodule "libqglviewer"]
 	path = libqglviewer
 	url = https://github.com/Ethan13310/libqglviewer-recipe
@@ -16,3 +13,9 @@
 [submodule "lpy"]
 	path = lpy
 	url = https://github.com/fredboudon/lpy.git
+[submodule "mtg"]
+	path = mtg
+	url = https://github.com/fredboudon/mtg.git
+[submodule "deploy"]
+	path = deploy
+	url = https://github.com/fredboudon/deploy.git
