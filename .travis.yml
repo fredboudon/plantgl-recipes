@@ -49,6 +49,7 @@ install:
 
 before_script:
   - source before_script.sh
+  - conda config --add channels conda-forge
 
 script:
   - source script.sh
