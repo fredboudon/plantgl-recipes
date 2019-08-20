@@ -5,7 +5,7 @@ platform:
 environment:
   matrix:
     # Add here environment variables to control the Appveyor build
-    - CONDA_RECIPE: openalea.deploy
+    - CONDA_RECIPE: deploy
       CONDA_VERSION: 3
       
     - CONDA_RECIPE: ann
@@ -26,8 +26,8 @@ environment:
     - CONDA_RECIPE: plantgl
       CONDA_VERSION: 3
       
-    # - CONDA_RECIPE: lpy
-    #  CONDA_VERSION: 3
+    - CONDA_RECIPE: lpy
+      CONDA_VERSION: 3
       
     - CONDA_RECIPE: mtg
       CONDA_VERSION: 3
