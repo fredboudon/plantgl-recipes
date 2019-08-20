@@ -47,6 +47,7 @@ install:
 
 before_build:
   - call before_build.bat
+  - conda config --add channels conda-forge
 
 build_script:
   - call build_script.bat
