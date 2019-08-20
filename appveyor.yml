@@ -14,7 +14,7 @@ environment:
     # - CONDA_RECIPE: cgal
     #   CONDA_VERSION: 3
       
-    - CONDA_RECIPE: libqglviewer
+    - CONDA_RECIPE: libqglviewer-recipe
       CONDA_VERSION: 3
       
     - CONDA_RECIPE: pyqglviewer
