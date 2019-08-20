@@ -24,7 +24,8 @@ build:
 requirements:
   build:
    - cmake
-   - patch
+   - m2-patch     [win]
+   - patch        [unix]
   run:
    - vs2008_runtime   [win and py27]
    - vs2015_runtime   [win and py37]

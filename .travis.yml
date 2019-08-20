@@ -10,7 +10,7 @@ services:
   - docker
 
 env:
-  - CONDA_RECIPE=openalea.deploy
+  - CONDA_RECIPE=deploy
     CONDA_VERSION=3
 
   - CONDA_RECIPE=ann
@@ -19,7 +19,7 @@ env:
   - CONDA_RECIPE=cgal
     CONDA_VERSION=3
 
-  - CONDA_RECIPE=libqglviewer
+  - CONDA_RECIPE=libqglviewer-recipe
     CONDA_VERSION=3
 
   - CONDA_RECIPE=pyqglviewer
@@ -31,8 +31,8 @@ env:
   - CONDA_RECIPE=plantgl
     CONDA_VERSION=3
 
-  # - CONDA_RECIPE=lpy
-  #  CONDA_VERSION=3
+  - CONDA_RECIPE=lpy
+    CONDA_VERSION=3
 
   - CONDA_RECIPE=mtg
     CONDA_VERSION=3
@@ -49,6 +49,7 @@ install:
 
 before_script:
   - source before_script.sh
+  - conda config --add channels conda-forge
 
 script:
   - source script.sh
