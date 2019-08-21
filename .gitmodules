@@ -16,3 +16,6 @@
 [submodule "libqglviewer-recipe"]
 	path = libqglviewer-recipe
 	url = https://github.com/fredboudon/libqglviewer-recipe.git
+[submodule "pyqglviewer"]
+	path = pyqglviewer
+	url = https://github.com/fredboudon/pyqglviewer.git
