@@ -5,7 +5,10 @@ platform:
 environment:
   matrix:
     # Add here environment variables to control the Appveyor build
-    - CONDA_RECIPE: deploy
+    - CONDA_RECIPE: libqglviewer-recipe
+      CONDA_VERSION: 3
+      
+    - CONDA_RECIPE: pyqglviewer
       CONDA_VERSION: 3
       
     - CONDA_RECIPE: ann
@@ -14,15 +17,12 @@ environment:
     # - CONDA_RECIPE: cgal
     #   CONDA_VERSION: 3
       
-    - CONDA_RECIPE: libqglviewer-recipe
-      CONDA_VERSION: 3
-      
-    - CONDA_RECIPE: pyqglviewer
-      CONDA_VERSION: 3
-      
     - CONDA_RECIPE: qhull
       CONDA_VERSION: 3
 
+    - CONDA_RECIPE: deploy
+      CONDA_VERSION: 3
+      
     - CONDA_RECIPE: plantgl
       CONDA_VERSION: 3
       
@@ -47,7 +47,6 @@ install:
 
 before_build:
   - call before_build.bat
-  - conda config --add channels conda-forge
 
 build_script:
   - call build_script.bat
