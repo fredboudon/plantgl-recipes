@@ -10,7 +10,10 @@ services:
   - docker
 
 env:
-  - CONDA_RECIPE=deploy
+  - CONDA_RECIPE=libqglviewer-recipe
+    CONDA_VERSION=3
+
+  - CONDA_RECIPE=pyqglviewer
     CONDA_VERSION=3
 
   - CONDA_RECIPE=ann
@@ -19,13 +22,10 @@ env:
   - CONDA_RECIPE=cgal
     CONDA_VERSION=3
 
-  - CONDA_RECIPE=libqglviewer-recipe
-    CONDA_VERSION=3
-
-  - CONDA_RECIPE=pyqglviewer
-    CONDA_VERSION=3
-
   - CONDA_RECIPE=qhull
+    CONDA_VERSION=3
+
+  - CONDA_RECIPE=deploy
     CONDA_VERSION=3
 
   - CONDA_RECIPE=plantgl
@@ -49,7 +49,6 @@ install:
 
 before_script:
   - source before_script.sh
-  - conda config --add channels conda-forge
 
 script:
   - source script.sh
